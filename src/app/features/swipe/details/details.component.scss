@@ -1,0 +1,13 @@
+.product {
+  background-color: unset !important;
+}
+
+::ng-deep hr {
+  border-bottom-width: 0px;
+  margin: 1rem 0;
+  border-top-color: currentColor !important;
+}
+
+::ng-deep .additionals {
+  display: none;
+}
