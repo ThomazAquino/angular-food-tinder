@@ -10,6 +10,16 @@ export const likeHistoryRoutes: Route[] = [
       {
         path: '',
         component: LikeHistoryListComponent,
+        // Possible navigation by id.
+        // children : [
+        //   {
+        //     path : ':id',
+        //     component : LikeHistoryDetailsComponent,
+        //     resolve : {
+        //         someResolver : ResolverClass,
+        //     },
+        //   }
+        // ]
       },
     ],
   },
