@@ -1,6 +1,13 @@
 # AngularTinderFood
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+
+The app is organized by features modules. There is a folder called "features" and every feature of the app have his own module inside this folder.
+I also have two more modules: "shared" for shared components/classes and "core" for the core data of the app that will be use by all modules.
+The project uses NGRX for state management. For this particular project, the store is inside core module.
+For the UI I used Angular Material/CDK and Tailwind.
+
+To run the application you need to install the dependencies: `npm install` or 'yarn' and start the server: `npm run start` or `yarn start`. The app will be available in "http://localhost:4200/".
+
 
 ## Development server
 

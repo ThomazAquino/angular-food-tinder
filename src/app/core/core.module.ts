@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
-import { IconsModule } from '../icons/icons.module';
+import { IconsModule } from '../shared/icons/icons.module';
 import { metaReducers, reducers } from './core.state';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FoodEffects } from './_state/food.effects';

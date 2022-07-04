@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { IconsModule } from './icons/icons.module';
+import { IconsModule } from './shared/icons/icons.module';
 
 @NgModule({
   declarations: [AppComponent],
