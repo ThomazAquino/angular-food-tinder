@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { delay, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,8 @@ export class SwipeService {
       ),
       tap((foodList: Food[]) => {
         this._foodList.next(foodList);
-      })
+      }),
+      delay(3000)
     );
   }
 }

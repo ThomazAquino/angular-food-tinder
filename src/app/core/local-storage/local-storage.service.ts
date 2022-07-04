@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const APP_PREFIX = 'nxvp-';
+const APP_PREFIX = 'foodji-';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +47,10 @@ export class LocalStorageService {
 
   getItem(key: string) {
     return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`) || '{}');
+  }
+
+  checkItem(key: string): boolean {
+    return !!localStorage.getItem(`${APP_PREFIX}${key}`);
   }
 
   removeItem(key: string) {

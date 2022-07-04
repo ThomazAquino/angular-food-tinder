@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import * as foodActions from '../../../core/_state/food.actions';
 import * as fromFood from '../../../core/_state/food.selectors';
 import { getNotSwipedFoods } from '../../../core/_state/food.selectors';
+import { fade } from '../../../shared/animations';
 
 /** CSS Class responsable for applying transition while the element is being 'transformed' (Ex: translate3d, rotate). */
 const ANIMATION_TRANSFORM_CSS_CLASS = 'drag-animating';
@@ -15,18 +16,18 @@ const TRANSITION_TIME = 250;
 @Component({
   selector: 'app-swipe-list',
   templateUrl: './swipe-list.component.html',
-  styles: [
-    `
-      .drag-animating {
-        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-      }
-    `,
-  ],
+  styles: [`
+    .drag-animating {
+      transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [fade],
   host: { class: 'block max-w-80 mx-auto' },
 })
 export class SwipeListComponent implements OnInit {
   foodList$ = this.store.select(getNotSwipedFoods);
+  loading$ = this.store.select(fromFood.getFoodLoading);
   idFromTopOfTheList$ = this.store.select(fromFood.getFoodIdFromTopOfTheList);
 
   constructor(private store: Store<any>, private renderer: Renderer2) {}
@@ -103,6 +104,7 @@ export class SwipeListComponent implements OnInit {
   }
 
   public reset() {
+    console.log('🚀 🚀 🚀  ~ reset ~ reset')
     this.store.dispatch(foodActions.resetFoodList());
   }
 

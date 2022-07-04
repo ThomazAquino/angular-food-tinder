@@ -13,7 +13,13 @@ import { FOOD_FEATURE_KEY } from './food.reducer';
 @Injectable()
 export class FoodEffects {
   ngrxOnInitEffects(): any {
-    return FoodActions.loadFood();
+    if (!this.localStorageService.checkItem('food')) {
+      console.log('NO FOOD!')
+      return FoodActions.loadFood();
+    } else {
+      console.log('YES FOOD!');
+      return { type: '[Effect] Init food with localStorage data' };
+    }
   }
 
   loadFoodList = createEffect(

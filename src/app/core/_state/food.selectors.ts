@@ -12,6 +12,11 @@ export const getFoodLoaded = createSelector(
   (state: FoodState) => state.loaded
 );
 
+export const getFoodLoading = createSelector(
+  getFoodState,
+  (state: FoodState) => state.loading
+);
+
 export const getFoodError = createSelector(
   getFoodState,
   (state: FoodState) => state.error
@@ -49,12 +54,6 @@ export const getFoodIdFromTopOfTheList = createSelector(
     return notSwipedFoods[notSwipedFoods.length - 1]?.id || undefined;
   }
 );
-
-// export const getListSelected = createSelector(
-//   getVehiclesEntities,
-//   getSelectedId,
-//   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
-// );
 
 export const getFoodEntities = createSelector(
   getFoodState,

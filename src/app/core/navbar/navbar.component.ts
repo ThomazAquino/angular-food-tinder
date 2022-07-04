@@ -12,6 +12,7 @@ export class NavbarComponent {
   constructor(private store: Store) {}
 
   public reset() {
+    console.log('🚀 🚀 🚀  ~ reset ~ reset')
     this.store.dispatch(resetFoodList());
   }
 }

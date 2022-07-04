@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { IconsModule } from '../../icons/icons.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -12,6 +13,7 @@ import { DetailsComponent } from './details/details.component';
 import { SwipeListComponent } from './list/swipe-list.component';
 import { SwipeContainerComponent } from './swipe-container.component';
 import { swipeRoutes } from './swipe.routing';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { swipeRoutes } from './swipe.routing';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
     MatDividerModule,
     SharedModule
   ],
