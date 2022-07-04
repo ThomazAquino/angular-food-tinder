@@ -72,8 +72,8 @@ body .light {
       is-dark: map.get(map.get($base-light-theme, color), is-dark),
       foreground: (
         base: #000000,
-        divider: #FECDD3, /* slate.200 */
-        dividers: #FECDD3, /* slate.200 */
+        divider: #E2E8F0, /* slate.200 */
+        dividers: #E2E8F0, /* slate.200 */
         disabled: #FB7185, /* slate.400 */
         disabled-button: #FB7185, /* slate.400 */
         disabled-text: #FB7185, /* slate.400 */

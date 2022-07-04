@@ -1,11 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MachinesService } from '../machines.service';
 
 @Component({
   selector: 'app-machine-detail',
   templateUrl: './machine-detail.component.html',
-  styleUrls: ['./machine-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MachineDetailComponent implements OnInit, OnDestroy {
   machineStreamSubscriptions: Subscription[] = [];

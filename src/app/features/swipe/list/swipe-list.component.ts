@@ -1,5 +1,5 @@
 import { CdkDragEnd, CdkDragMove, CdkDragStart } from '@angular/cdk/drag-drop';
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Renderer2 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as foodActions from '../../../core/_state/food.actions';
 import * as fromFood from '../../../core/_state/food.selectors';
@@ -22,6 +22,7 @@ const TRANSITION_TIME = 250;
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block max-w-80 mx-auto' },
 })
 export class SwipeListComponent implements OnInit {

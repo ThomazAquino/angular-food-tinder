@@ -56,7 +56,7 @@ export class MachinesService implements OnDestroy {
 
   fetchMachine(): Observable<any> {
     return this.http
-      .get(`https://0000amperoid.tenants.foodji.io/machines/${MACHINE_ID}`)
+      .get(`https://amperoid.tenants.foodji.io/machines/${MACHINE_ID}`)
       .pipe(
         tap((data) =>
           console.log(
