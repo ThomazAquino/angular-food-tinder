@@ -16,8 +16,7 @@ import { FOOD_FEATURE_KEY } from './food.reducer';
 @Injectable()
 export class FoodEffects {
   ngrxOnInitEffects(): any {
-    console.warn('LOOADD')
-    // return FoodActions.loadFood();
+    return FoodActions.loadFood();
   }
 
   loadFoodList = createEffect(

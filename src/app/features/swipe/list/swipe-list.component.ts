@@ -62,7 +62,10 @@ export class SwipeListComponent implements OnInit {
       const element = this.getCardWrapper(event);
       const direction = Math.sign(event.distance.x);
       this.animateElementOutOfScreen(element, direction);
-      setTimeout(() => this.store.dispatch(foodActions.likeFood({food: {id: foodId, changes: {liked: true}}})), TRANSITION_TIME);
+      setTimeout(() => this.store.dispatch(
+        foodActions.likeFood({food: {id: foodId, changes: {liked: direction === 1 ? true : false}}})
+        ), TRANSITION_TIME
+      );
       
     } else {
       this.animateElementToOriginalPosition(event);
@@ -74,7 +77,7 @@ export class SwipeListComponent implements OnInit {
     const element = document.querySelector(`[data-id="${foodId}"]`);
     const direction = like ? 1 : -1;
     this.animateElementOutOfScreen(element, direction);
-    setTimeout(() => this.store.dispatch(foodActions.likeFood({food: {id: foodId, changes: {liked: true}}})), TRANSITION_TIME);
+    setTimeout(() => this.store.dispatch(foodActions.likeFood({food: {id: foodId, changes: {liked: like}}})), TRANSITION_TIME);
   }
 
   public reset() {
