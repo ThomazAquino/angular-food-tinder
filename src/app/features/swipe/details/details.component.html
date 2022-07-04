@@ -1,9 +1,11 @@
 <figcaption class="absolute bottom-5 w-full px-4">
-  <mat-expansion-panel class="shadow-none hover:shadow-none m-0 px-4 py-2 bg-card rounded-md border"
+  <mat-expansion-panel
+    class="shadow-none hover:shadow-none m-0 px-4 py-2 bg-card rounded-md border"
     [expanded]="expanded"
     (closed)="expanded = false"
-    (opened)="expanded = true"  
-    hideToggle>
+    (opened)="expanded = true"
+    hideToggle
+  >
     <!-- Header -->
     <mat-expansion-panel-header class="h-fit p-0">
       <mat-panel-title class="flex flex-col items-start p-0">
@@ -14,21 +16,26 @@
 
     <!-- Body -->
     <div class="mt-4">
-      <mat-divider class="mb-4" ></mat-divider>
+      <mat-divider class="mb-4"></mat-divider>
       <div [innerHTML]="food.description | sanitizer"></div>
     </div>
   </mat-expansion-panel>
 
   <!-- Dynamic button -->
-  <button 
+  <button
     class="absolute right-6 -translate-y-2/4 ease-out duration-300 w-7 h-7 flex items-center justify-center bg-gradient-to-bl"
-    [ngClass]="expanded ? 'top-0 from-orange-1 to-orange-2' : 'top-2/4 from-yellow-1 to-yellow-2'"
+    [ngClass]="
+      expanded
+        ? 'top-0 from-orange-1 to-orange-2'
+        : 'top-2/4 from-yellow-1 to-yellow-2'
+    "
     mat-icon-button
     (click)="expanded = !expanded"
-    >
+  >
     <!-- We could render the two buttons and only remove opacity of the one to gain performance. -->
-    <mat-icon class="icon-size-6 text-white -mt-1" [svgIcon]=" expanded ? 'mat_solid:arrow_down' : 'mat_solid:info_custom'"></mat-icon>
+    <mat-icon
+      class="icon-size-6 text-white -mt-1"
+      [svgIcon]="expanded ? 'mat_solid:arrow_down' : 'mat_solid:info_custom'"
+    ></mat-icon>
   </button>
-
 </figcaption>
-

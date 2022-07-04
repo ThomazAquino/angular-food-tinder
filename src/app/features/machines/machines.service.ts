@@ -1,61 +1,80 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
-import { delay, distinctUntilChanged, retryWhen, share, startWith, switchMap, take, takeUntil, tap } from 'rxjs/operators';
+import {
+  delay,
+  distinctUntilChanged,
+  retryWhen,
+  share,
+  startWith,
+  switchMap,
+  take,
+  takeUntil,
+  tap
+} from 'rxjs/operators';
 
 const MACHINE_ID = 'bce7febc-e50b-4211-bda9-6ac51ad34be6';
 const POLLING_DELAY_MS = 5000;
 const MAX_RECONNECT_ATTEMPTS = 3;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MachinesService implements OnDestroy {
   private machinePolling: Observable<any>;
   private stopPolling = new Subject();
   private machineData$: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.machinePolling = timer(0, POLLING_DELAY_MS).pipe(
       switchMap(() => this.fetchMachine()),
       share(),
       takeUntil(this.stopPolling),
-      tap(data => this.machineData$.next(data)),
-      retryWhen(error$ => error$.pipe(
-        delay(POLLING_DELAY_MS),
-        take(MAX_RECONNECT_ATTEMPTS),
-        tap({
-          complete: () => console.log('Error while fetching machine data, please try again later.')
-        })
-      ))
+      tap((data) => this.machineData$.next(data)),
+      retryWhen((error$) =>
+        error$.pipe(
+          delay(POLLING_DELAY_MS),
+          take(MAX_RECONNECT_ATTEMPTS),
+          tap({
+            complete: () =>
+              console.log(
+                'Error while fetching machine data, please try again later.'
+              ),
+          })
+        )
+      )
     );
   }
 
   public getMachine(): Observable<any> {
-    return this.machinePolling.pipe(   
+    return this.machinePolling.pipe(
       startWith(this.machineData$.value),
       distinctUntilChanged((a, b) => JSON.stringify(a) === JSON.stringify(b)),
-      tap(() => console.log('data sent to subscriber')),
+      tap(() => console.log('data sent to subscriber'))
     );
   }
 
   fetchMachine(): Observable<any> {
-    return this.http.get(`https://0000amperoid.tenants.foodji.io/machines/${MACHINE_ID}`).pipe(
-      tap(data => console.log('************** HTTP CALL MADE **************', `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`)),
-    )
+    return this.http
+      .get(`https://0000amperoid.tenants.foodji.io/machines/${MACHINE_ID}`)
+      .pipe(
+        tap((data) =>
+          console.log(
+            '************** HTTP CALL MADE **************',
+            `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
+          )
+        )
+      );
     // return of({apiVersion: '1.0', status: 'success', data: {}}).pipe(
     //   tap(data => console.log('************** HTTP CALL MADE **************', `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`))
     // )
   }
 
-  
   ngOnDestroy() {
-    console.log('AYSGYASGYAUGSYUAGSYUASGYU')
+    console.log('Service Destroyed.');
     this.stopPolling.next(null);
   }
 }
-
-
 
 /**
  * 

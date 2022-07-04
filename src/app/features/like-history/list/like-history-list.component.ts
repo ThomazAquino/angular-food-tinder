@@ -6,10 +6,12 @@ import * as fromFood from '../../../core/_state/food.selectors';
 
 @Component({
   selector: 'app-like-history-list',
-  templateUrl: './like-history-list.component.html'
+  templateUrl: './like-history-list.component.html',
 })
 export class LikeHistoryListComponent {
-  likedFoodsAlphabetically$: Observable<FoodEntity[]> = this.store.pipe(select(fromFood.getLikedFoodsAlphabetically));
+  likedFoodsAlphabetically$: Observable<FoodEntity[]> = this.store.pipe(
+    select(fromFood.getLikedFoodsAlphabetically)
+  );
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 }

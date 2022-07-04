@@ -10,9 +10,6 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 import * as FoodActions from './food.actions';
 import { FOOD_FEATURE_KEY } from './food.reducer';
 
-
-
-
 @Injectable()
 export class FoodEffects {
   ngrxOnInitEffects(): any {
@@ -56,10 +53,7 @@ export class FoodEffects {
   persistFood = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(
-          FoodActions.loadFoodSuccess,
-          FoodActions.likeFood,
-        ),
+        ofType(FoodActions.loadFoodSuccess, FoodActions.likeFood),
         withLatestFrom(this.store.pipe(select(selectFoodState))),
         tap(([action, food]) =>
           this.localStorageService.setItem(FOOD_FEATURE_KEY, food)
@@ -72,6 +66,6 @@ export class FoodEffects {
     private readonly actions$: Actions,
     private swipeService: SwipeService,
     private store: Store,
-    private localStorageService: LocalStorageService,
-    ) {}
+    private localStorageService: LocalStorageService
+  ) {}
 }

@@ -1,4 +1,3 @@
-
 <div class="cards-wrapper mb-8 h-[400px] relative">
   <div
     class="card-wrapper drag-animating absolute top-0 h-[400px] w-full"
@@ -9,27 +8,49 @@
     (cdkDragMoved)="cdkDragMoved($event)"
     (cdkDragEnded)="cdkDragEnded($event, food.id)"
     [attr.data-id]="food.id"
+  >
+    <figure
+      class="example-box drag-animating relative max-w-xs rounded-md bg-card border pb-4 h-full"
     >
-    <figure class="example-box drag-animating relative max-w-xs rounded-md bg-card border pb-4 h-full">
-      <img class="w-full object-cover" [src]="food.imageSet[0].url">
+      <img class="w-full object-cover" [src]="food.imageSet[0].url" />
       <app-details [food]="food"></app-details>
     </figure>
   </div>
 </div>
 
-<div class="flex justify-around" *ngIf="idFromTopOfTheList$ | async as id; else refreshButton">
-  <button (click)="evaluateFood(id, false)" mat-fab class="bg-white shadow-none border" style="border-color: rgb(var(--foodji-border-rgb))">
+<div
+  class="flex justify-around"
+  *ngIf="idFromTopOfTheList$ | async as id; else refreshButton"
+>
+  <button
+    (click)="evaluateFood(id, false)"
+    mat-fab
+    class="bg-white shadow-none border"
+    style="border-color: rgb(var(--foodji-border-rgb))"
+  >
     <mat-icon [svgIcon]="'mat_solid:close'" class="text-[#55E6CB]"></mat-icon>
   </button>
-  <button (click)="evaluateFood(id, true)" mat-fab class="bg-white shadow-none border" style="border-color: rgb(var(--foodji-border-rgb))">
-    <mat-icon [svgIcon]="'mat_solid:favorite'" class="text-[#E56E5E]"></mat-icon>
+  <button
+    (click)="evaluateFood(id, true)"
+    mat-fab
+    class="bg-white shadow-none border"
+    style="border-color: rgb(var(--foodji-border-rgb))"
+  >
+    <mat-icon
+      [svgIcon]="'mat_solid:favorite'"
+      class="text-[#E56E5E]"
+    ></mat-icon>
   </button>
 </div>
 
 <ng-template #refreshButton>
   <div class="flex flex-col items-center cursor-pointer" (click)="reset()">
-    <mat-icon class="icon-size-24 mr-2 opacity-60" [svgIcon]="'mat_solid:restart_alt'"></mat-icon>
-    <h3 class="text-4xl font-light uppercase tracking-wider opacity-50 mt-2">Refresh</h3>
+    <mat-icon
+      class="icon-size-24 mr-2 opacity-60"
+      [svgIcon]="'mat_solid:restart_alt'"
+    ></mat-icon>
+    <h3 class="text-4xl font-light uppercase tracking-wider opacity-50 mt-2">
+      Refresh
+    </h3>
   </div>
 </ng-template>
-

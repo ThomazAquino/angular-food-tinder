@@ -3,15 +3,13 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SwipeService {
   private _foodList: BehaviorSubject<Food[] | null> = new BehaviorSubject([]);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get foodList$(): Observable<Food[]> {
     return this._foodList.asObservable();
@@ -19,10 +17,12 @@ export class SwipeService {
 
   getFoods(): Observable<Food[]> {
     return this.http.get<Food[]>('./assets/db/product_examples.json').pipe(
-      map((food) => food.filter(f => f.category.name === 'Hauptspeisen - Mains')),
+      map((food) =>
+        food.filter((f) => f.category.name === 'Hauptspeisen - Mains')
+      ),
       tap((foodList: Food[]) => {
         this._foodList.next(foodList);
-      }),
+      })
     );
   }
 }
@@ -32,9 +32,9 @@ export interface Food {
   name: string;
   attributes: Attribute[];
   category: {
-    name: string
-  }
-  imageSet: ImageSet[]
+    name: string;
+  };
+  imageSet: ImageSet[];
 }
 
 export interface ImageSet {
@@ -54,6 +54,6 @@ export interface Attribute {
   order: number;
   requirement: number;
   type: number;
-  value:string;
+  value: string;
   value_i18n: string;
 }

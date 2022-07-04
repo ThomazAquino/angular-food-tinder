@@ -10,9 +10,7 @@ import { CoreModule } from './core/core.module';
 import { IconsModule } from './icons/icons.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +21,6 @@ import { IconsModule } from './icons/icons.module';
     MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

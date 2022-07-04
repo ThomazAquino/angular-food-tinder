@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 
 module.exports = plugin(({ addComponents }) => {
   /*
@@ -7,57 +7,66 @@ module.exports = plugin(({ addComponents }) => {
    * be defined before pretty much everything else.
    */
   addComponents({
-    '.mat-icon': {
-      '--tw-text-opacity': '1',
-      color: 'rgba(var(--foodji-mat-icon-rgb), var(--tw-text-opacity))',
+    ".mat-icon": {
+      "--tw-text-opacity": "1",
+      color: "rgba(var(--foodji-mat-icon-rgb), var(--tw-text-opacity))",
     },
-    '.text-default': {
-      '--tw-text-opacity': '1 !important',
-      color: 'rgba(var(--foodji-text-default-rgb), var(--tw-text-opacity)) !important',
+    ".text-default": {
+      "--tw-text-opacity": "1 !important",
+      color:
+        "rgba(var(--foodji-text-default-rgb), var(--tw-text-opacity)) !important",
     },
-    '.text-secondary': {
-      '--tw-text-opacity': '1 !important',
-      color: 'rgba(var(--foodji-text-secondary-rgb), var(--tw-text-opacity)) !important',
+    ".text-secondary": {
+      "--tw-text-opacity": "1 !important",
+      color:
+        "rgba(var(--foodji-text-secondary-rgb), var(--tw-text-opacity)) !important",
     },
-    '.text-hint': {
-      '--tw-text-opacity': '1 !important',
-      color: 'rgba(var(--foodji-text-hint-rgb), var(--tw-text-opacity)) !important',
+    ".text-hint": {
+      "--tw-text-opacity": "1 !important",
+      color:
+        "rgba(var(--foodji-text-hint-rgb), var(--tw-text-opacity)) !important",
     },
-    '.text-disabled': {
-      '--tw-text-opacity': '1 !important',
-      color: 'rgba(var(--foodji-text-disabled-rgb), var(--tw-text-opacity)) !important',
+    ".text-disabled": {
+      "--tw-text-opacity": "1 !important",
+      color:
+        "rgba(var(--foodji-text-disabled-rgb), var(--tw-text-opacity)) !important",
     },
-    '.divider': {
-      color: 'var(--foodji-divider) !important',
+    ".divider": {
+      color: "var(--foodji-divider) !important",
     },
-    'hr': {
-      color: 'var(--foodji-divider) !important',
+    hr: {
+      color: "var(--foodji-divider) !important",
     },
-    '.bg-card': {
-      '--tw-bg-opacity': '1 !important',
-      backgroundColor: 'rgba(var(--foodji-bg-card-rgb), var(--tw-bg-opacity)) !important',
+    ".bg-card": {
+      "--tw-bg-opacity": "1 !important",
+      backgroundColor:
+        "rgba(var(--foodji-bg-card-rgb), var(--tw-bg-opacity)) !important",
     },
-    '.bg-default': {
-      '--tw-bg-opacity': '1 !important',
-      backgroundColor: 'rgba(var(--foodji-bg-default-rgb), var(--tw-bg-opacity)) !important',
+    ".bg-default": {
+      "--tw-bg-opacity": "1 !important",
+      backgroundColor:
+        "rgba(var(--foodji-bg-default-rgb), var(--tw-bg-opacity)) !important",
     },
-    '.bg-dialog': {
-      '--tw-bg-opacity': '1 !important',
-      backgroundColor: 'rgba(var(--foodji-bg-dialog-rgb), var(--tw-bg-opacity)) !important',
+    ".bg-dialog": {
+      "--tw-bg-opacity": "1 !important",
+      backgroundColor:
+        "rgba(var(--foodji-bg-dialog-rgb), var(--tw-bg-opacity)) !important",
     },
-    '.ring-bg-default': {
-      '--tw-ring-opacity': '1 !important',
-      '--tw-ring-color': 'rgba(var(--foodji-bg-default-rgb), var(--tw-ring-opacity)) !important',
+    ".ring-bg-default": {
+      "--tw-ring-opacity": "1 !important",
+      "--tw-ring-color":
+        "rgba(var(--foodji-bg-default-rgb), var(--tw-ring-opacity)) !important",
     },
-    '.ring-bg-card': {
-      '--tw-ring-opacity': '1 !important',
-      '--tw-ring-color': 'rgba(var(--foodji-bg-card-rgb), var(--tw-ring-opacity)) !important',
+    ".ring-bg-card": {
+      "--tw-ring-opacity": "1 !important",
+      "--tw-ring-color":
+        "rgba(var(--foodji-bg-card-rgb), var(--tw-ring-opacity)) !important",
     },
   });
 
   addComponents({
-    '.bg-hover': {
-      backgroundColor: 'var(--foodji-bg-hover) !important',
+    ".bg-hover": {
+      backgroundColor: "var(--foodji-bg-hover) !important",
     },
   });
 });

@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `<router-outlet></router-outlet>`,
 })
 export class MachinesContainerComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

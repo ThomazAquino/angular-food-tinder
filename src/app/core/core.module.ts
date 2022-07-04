@@ -12,22 +12,15 @@ import { metaReducers, reducers } from './core.state';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FoodEffects } from './_state/food.effects';
 
-
-
-
-
-
 @NgModule({
-  declarations: [
-    NavbarComponent
-  ],
+  declarations: [NavbarComponent],
   imports: [
     CommonModule,
     RouterModule,
     MatToolbarModule,
     IconsModule,
     MatIconModule,
-    
+
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     // StoreRouterConnectingModule.forRoot(),
@@ -35,17 +28,18 @@ import { FoodEffects } from './_state/food.effects';
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
-          name: 'Vehicle Portfolio'
+          name: 'Foodji Tinder',
         }),
-
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
     // Do not allow multiple injections
     if (parentModule) {
-      throw new Error('CoreModule has already been loaded. Import this module in the AppModule only.');
+      throw new Error(
+        'CoreModule has already been loaded. Import this module in the AppModule only.'
+      );
     }
   }
 }

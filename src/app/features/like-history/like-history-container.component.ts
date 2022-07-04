@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-like-history-container',
   template: `<router-outlet></router-outlet>`,
 })
-export class LikeHistoryContainerComponent implements OnInit {
+export class LikeHistoryContainerComponent {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

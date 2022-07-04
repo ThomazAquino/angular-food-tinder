@@ -1,38 +1,53 @@
 <div class="relative">
   <ng-container *ngIf="likedFoodsAlphabetically$ | async as likedFoods">
-      <ng-container *ngIf="likedFoods.length; else noContacts">
-          <ng-container *ngFor="let food of likedFoods; let i = index">
+    <ng-container *ngIf="likedFoods.length; else noContacts">
+      <ng-container *ngFor="let food of likedFoods; let i = index">
+        <!-- Group -->
+        <ng-container
+          *ngIf="
+            i === 0 ||
+            (food.name | uppercase)?.charAt(0) !==
+              (likedFoods[i - 1].name | uppercase)?.charAt(0)
+          "
+        >
+          <div
+            class="z-10 sticky top-12 -mt-px px-6 py-1 md:px-8 border-t border-b font-medium uppercase text-secondary bg-gray-50"
+          >
+            {{ food.name?.charAt(0) }}
+          </div>
+        </ng-container>
 
-              <!-- Group -->
-              <ng-container *ngIf="i === 0 || (food.name | uppercase)?.charAt(0) !== (likedFoods[i - 1].name| uppercase)?.charAt(0)">
-                <div
-                  class="z-10 sticky top-12 -mt-px px-6 py-1 md:px-8 border-t border-b font-medium uppercase text-secondary bg-gray-50">
-                  {{ food.name?.charAt(0) }}
-                </div>
-              </ng-container>
-              
-              <!-- Contact -->
-              <a
-                  class="z-20 flex items-center px-6 py-4 md:px-8 cursor-pointer bg-white border-b"
-                  [routerLink]="['./', food.id]">
-                  <div class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden">
-                    <img
-                      class="object-cover w-full h-full"
-                      [src]="food.imageSet[0]?.url"
-                      alt="Contact avatar"/>
-                  </div>
-                  <div class="min-w-0 ml-4">
-                      <div class="font-medium leading-5 truncate">{{ food.name }}</div>
-                      <div class="leading-5 truncate text-secondary">{{ food.shortDescription }}</div>
-                  </div>
-              </a>
-          </ng-container>
+        <!-- Contact -->
+        <a
+          class="z-20 flex items-center px-6 py-4 md:px-8 cursor-pointer bg-white border-b"
+          [routerLink]="['./', food.id]"
+        >
+          <div
+            class="flex flex-0 items-center justify-center w-10 h-10 rounded-full overflow-hidden"
+          >
+            <img
+              class="object-cover w-full h-full"
+              [src]="food.imageSet[0]?.url"
+              alt="Contact avatar"
+            />
+          </div>
+          <div class="min-w-0 ml-4">
+            <div class="font-medium leading-5 truncate">{{ food.name }}</div>
+            <div class="leading-5 truncate text-secondary">
+              {{ food.shortDescription }}
+            </div>
+          </div>
+        </a>
       </ng-container>
+    </ng-container>
   </ng-container>
 
   <!-- No contacts -->
   <ng-template #noContacts>
-      <div class="p-8 sm:p-16 text-4xl leading-8 font-medium tracking-tight text-center">There are no liked foods</div>
+    <div
+      class="p-8 sm:p-16 text-4xl leading-8 font-medium tracking-tight text-center"
+    >
+      There are no liked foods
+    </div>
   </ng-template>
-
 </div>

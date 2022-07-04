@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 const APP_PREFIX = 'nxvp-';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
   constructor() {}

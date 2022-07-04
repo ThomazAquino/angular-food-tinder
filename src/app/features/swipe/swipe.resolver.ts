@@ -3,7 +3,7 @@ import {
   ActivatedRouteSnapshot,
   Resolve,
   Router,
-  RouterStateSnapshot
+  RouterStateSnapshot,
 } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -15,22 +15,17 @@ import { SwipeService } from './swipe.service';
   providedIn: 'root',
 })
 export class FoodListResolver implements Resolve<any> {
-
   constructor(
     private _swipeService: SwipeService,
     private _router: Router,
     private store: Store
-    ) {}
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any[]> | any {
     // return this._swipeService.getFoods();
-    return this.store.pipe(
-      select(fromFood.getNotSwipedFoods),
-      take(1),
-    );
+    return this.store.pipe(select(fromFood.getNotSwipedFoods), take(1));
   }
 }
-

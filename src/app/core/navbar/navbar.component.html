@@ -1,20 +1,22 @@
 <mat-toolbar color="primary" class="flex items-center bg-gradient-to-bl from-orange-1 to-orange-2">
-  <button mat-icon-button class="flex" aria-label="Menu button">
-    <mat-icon class="icon-size-7 mr-2 text-current" [svgIcon]="'mat_solid:menu'"></mat-icon>
-  </button>
+
   <span>Foodji</span>
-  <span class="flex-auto">
-  </span>
+  <span class="flex-auto"></span>
+
   <button mat-icon-button class="flex" aria-label="" [routerLink]="['machines/']">
     <mat-icon class="icon-size-7 mr-3 text-current" [svgIcon]="'mat_solid:precision_manufacturing'"></mat-icon>
   </button>
+
   <button mat-icon-button class="flex" aria-label="" [routerLink]="['swipe/']">
     <mat-icon class="icon-size-7 mr-3 text-current" [svgIcon]="'mat_solid:swipe'"></mat-icon>
   </button>
+
   <button mat-icon-button class="flex" aria-label="" [routerLink]="['like-history/']">
     <mat-icon class="icon-size-7 mr-3 text-current" [svgIcon]="'mat_solid:favorite'"></mat-icon>
   </button>
+
   <button mat-icon-button class="flex" aria-label="Reset button" (click)="reset()">
     <mat-icon class="icon-size-7 text-current" [svgIcon]="'mat_solid:restart_alt'"></mat-icon>
   </button>
+
 </mat-toolbar>

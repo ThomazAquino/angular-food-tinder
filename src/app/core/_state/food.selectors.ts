@@ -24,22 +24,22 @@ export const getAllFood = createSelector(getFoodState, (state: FoodState) =>
 export const getNotSwipedFoods = createSelector(
   getAllFood,
   (foods: FoodEntity[]) => {
-    return foods.filter(food => food.liked === undefined)
+    return foods.filter((food) => food.liked === undefined);
   }
 );
 
 export const getLikedFoods = createSelector(
   getAllFood,
   (foods: FoodEntity[]) => {
-    return foods.filter(food => food.liked)
+    return foods.filter((food) => food.liked);
   }
 );
 
 export const getLikedFoodsAlphabetically = createSelector(
   getLikedFoods,
   (likedFoods: FoodEntity[]) => {
-     likedFoods.filter(food => food.liked)
-     return likedFoods.sort((a,b) => a.name.localeCompare(b.name));
+    likedFoods.filter((food) => food.liked);
+    return likedFoods.sort((a, b) => a.name.localeCompare(b.name));
   }
 );
 
@@ -56,8 +56,9 @@ export const getFoodIdFromTopOfTheList = createSelector(
 //   (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
 // );
 
-export const getFoodEntities = createSelector(getFoodState, (state: FoodState) =>
-  selectEntities(state)
+export const getFoodEntities = createSelector(
+  getFoodState,
+  (state: FoodState) => selectEntities(state)
 );
 
 export const getSelectedId = createSelector(

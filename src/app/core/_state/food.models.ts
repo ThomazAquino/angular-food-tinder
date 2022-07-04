@@ -6,12 +6,12 @@ export interface FoodEntity {
   name: string;
   attributes: Attribute[];
   category: {
-    name: string
-  }
-  imageSet: ImageSet[],
-  liked: boolean,
-  description: string,
-  shortDescription: string
+    name: string;
+  };
+  imageSet: ImageSet[];
+  liked: boolean;
+  description: string;
+  shortDescription: string;
 }
 
 export interface ImageSet {
@@ -31,6 +31,6 @@ export interface Attribute {
   order: number;
   requirement: number;
   type: number;
-  value:string;
+  value: string;
   value_i18n: string;
 }
