@@ -14,10 +14,10 @@ import { FOOD_FEATURE_KEY } from './food.reducer';
 export class FoodEffects {
   ngrxOnInitEffects(): any {
     if (!this.localStorageService.checkItem('food')) {
-      console.log('NO FOOD!')
+      console.log('init effect loading new data');
       return FoodActions.loadFood();
     } else {
-      console.log('YES FOOD!');
+      console.log('init effect using localStorage data');
       return { type: '[Effect] Init food with localStorage data' };
     }
   }
