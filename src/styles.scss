@@ -136,3 +136,18 @@ body {
   margin: 0;
   font-family: RoobertTRIAL, sans-serif !important;
 }
+
+// For debugging
+pre {
+  font-size: 1em;
+  line-height: 1.6666667;
+  border-radius: 0.25rem;
+  padding: 0.6666667em 1em;
+  color: #fff;
+  background-color: #1e293b;
+  overflow-x: auto;
+  font-weight: 400;
+  margin: 1.6666667em 1em;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}

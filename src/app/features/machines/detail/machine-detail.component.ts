@@ -9,22 +9,15 @@ import { MachinesService } from '../machines.service';
 })
 export class MachineDetailComponent implements OnInit, OnDestroy {
   machineStreamSubscriptions: Subscription[] = [];
+  machine$ = this.machinesService.getMachine();
+
   constructor(private machinesService: MachinesService) {}
 
   ngOnInit(): void {
-    this.machineStreamSubscriptions.push(
-      this.machinesService.getMachine().subscribe((e) => {
-        console.log(e);
-      })
-    );
-
-    // setTimeout(() => {
-    //   this.machineStreamSubscriptions.push(
-    //     this.machinesService.getMachine().subscribe((e) => {
-    //       console.log(e);
-    //     })
-    //   );
-    // }, 2000);
+    /** Uncomment the following subscription to test the shared data stream. */
+    // setTimeout(() => this.machineStreamSubscriptions.push(this.machinesService.getMachine().subscribe((e) => console.log('sub 1',e))), 1000);
+    // setTimeout(() => this.machineStreamSubscriptions.push(this.machinesService.getMachine().subscribe((e) => console.log('sub 2',e))), 2000);
+    // setTimeout(() => this.machineStreamSubscriptions.push(this.machinesService.getMachine().subscribe((e) => console.log('sub 3',e))), 3000);
   }
 
   ngOnDestroy(): void {
